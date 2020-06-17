@@ -56,7 +56,6 @@
         "ACCESS_COARSE_LOCATION",
         "CAMERA_ROLL"
       ],
-      "googleServicesFile": "./google-services.json",
       "config": {
         "googleMaps": {
           "apiKey": "XXXXXXXXXXXXXXXXXXXXXXXX"

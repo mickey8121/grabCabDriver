@@ -42,9 +42,9 @@ export default class DriverRegistrationPage extends React.Component {
   }
 
   //upload of picture
-  async uploadmultimedia(fname, lname, mobile, email, vehicleNum, vehicleName, url){
-    console.log(url)
-    this.setState({loading: true})
+  async uploadmultimedia(fname, lname, mobile, email, vehicleNum, vehicleName, url) {
+    console.log({ url })
+    this.setState({ loading: true })
     const blob = await new Promise((resolve, reject) => {
         const xhr = new XMLHttpRequest();
         xhr.onload = function() {
@@ -57,18 +57,17 @@ export default class DriverRegistrationPage extends React.Component {
        xhr.open('GET', url, true); // fetch the blob from uri in async mode
        xhr.send(null); // no initial data
      });
-    
+
     if((blob.size/1000000)>2) {
-      this.setState({loading: false},()=>{alert(languageJSON.image_size_error)})
+      this.setState({ loading: false }, () => alert(languageJSON.image_size_error))
     }
     else {
-      var timestamp = new Date().getTime()
-      var imageRef = firebase.storage().ref().child(`users/driver_licenses/`+timestamp+`/`);
+      const timestamp = new Date().getTime()
+      const imageRef = firebase.storage().ref().child(`users/driver_licenses/`+timestamp+`/`);
       return imageRef.put(blob).then(() => {
           blob.close()
           return imageRef.getDownloadURL()
         }).then((dwnldurl) => {
-          console.log(dwnldurl);
           this.clickRegister(fname, lname, mobile, email, vehicleNum, vehicleName, dwnldurl);
       })
     }
@@ -81,7 +80,13 @@ export default class DriverRegistrationPage extends React.Component {
     console.log(registrationData);
     return (
         <View style={styles.containerView}>
-            <DiverReg reqData={registrationData?registrationData:""} onPressRegister={(fname, lname, mobile, email, vehicleNum, vehicleName, image)=>this.uploadmultimedia(fname, lname, mobile, email, vehicleNum, vehicleName, image)} onPressBack={()=>{this.props.navigation.goBack()}} loading={this.state.loading}></DiverReg>
+            <DiverReg
+              reqData={registrationData || ""}
+              onPressRegister={
+                (fname, lname, mobile, email, vehicleNum, vehicleName, image) => this.uploadmultimedia(fname, lname, mobile, email, vehicleNum, vehicleName, image)}
+                onPressBack={() => this.props.navigation.goBack()}
+                loading={this.state.loading}
+            />
         </View>
     );
   }

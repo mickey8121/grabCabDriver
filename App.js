@@ -5,17 +5,16 @@ import * as Font from 'expo-font';
 import { AppLoading } from 'expo';
 import * as firebase from 'firebase'
 
-var firebaseConfig = {
-  apiKey: "XXXXXXXXXXXXXXXXXXXXXXXX",
-  authDomain: "XXXXXXXXXXXXXXXXXXXXXXXX",
-  databaseURL: "XXXXXXXXXXXXXXXXXXXXXXXX",
-  projectId: "XXXXXXXXXXXX",
-  storageBucket: "XXXXXXXXXXXXXXXXXXXXXXXX",
-  messagingSenderId: "XXXXXXXXXXXX",
-  appId: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
-  measurementId: "XXXXXXXXXXXX"
+const firebaseConfig = {
+  apiKey: "AIzaSyBpiq5QmsBtyGj-iSytITKSklgrqBEtmzk",
+  authDomain: "ctr-new-database.firebaseapp.com",
+  databaseURL: "https://ctr-new-database.firebaseio.com",
+  projectId: "ctr-new-database",
+  storageBucket: "ctr-new-database.appspot.com",
+  messagingSenderId: "338139831512",
+  appId: "1:338139831512:web:f1697f85abde8d485a0bad",
+  measurementId: "G-JRVXVGELTN"
 };
-
 
 firebase.initializeApp(firebaseConfig);
 
@@ -48,15 +47,15 @@ export default class App extends React.Component {
   
   render() {
     return (
-        this.state.assetsLoaded ? 
-          <AppContainer/>
-          :         
+        this.state.assetsLoaded ? <AppContainer/>
+        : (
           <AppLoading
             startAsync={this._loadResourcesAsync}
             onFinish={() => this.setState({ assetsLoaded: true })}
             onError={console.warn}
             autoHideSplash={true}
           />
+        )
     );
   }
 }

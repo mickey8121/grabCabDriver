@@ -192,6 +192,7 @@ export default class DiverReg extends React.Component {
                                     errorStyle={styles.errorMessageStyle}
                                     inputContainerStyle={styles.inputContainerStyle}
                                     containerStyle={styles.textInputStyle}
+                                    blurOnSubmit={false}
                                 />
                             </View>  
 
@@ -221,6 +222,7 @@ export default class DiverReg extends React.Component {
                                     errorStyle={styles.errorMessageStyle}
                                     inputContainerStyle={styles.inputContainerStyle}
                                     containerStyle={styles.textInputStyle}
+                                    blurOnSubmit={false}
                                 />
                             </View>
 
@@ -250,6 +252,7 @@ export default class DiverReg extends React.Component {
                                     errorStyle={styles.errorMessageStyle}
                                     inputContainerStyle={styles.inputContainerStyle}
                                     containerStyle={styles.textInputStyle}
+                                    blurOnSubmit={false}
                                 />
                             </View>
                             <View style={styles.textInputContainerStyle}>
@@ -278,6 +281,7 @@ export default class DiverReg extends React.Component {
                                     errorStyle={styles.errorMessageStyle}
                                     inputContainerStyle={styles.inputContainerStyle}
                                     containerStyle={styles.textInputStyle}
+                                    blurOnSubmit={false}
                                 />
                             </View>
 
@@ -305,6 +309,7 @@ export default class DiverReg extends React.Component {
                                     errorStyle={styles.errorMessageStyle}
                                     inputContainerStyle={styles.inputContainerStyle}
                                     containerStyle={styles.textInputStyle}
+                                    blurOnSubmit={false}
                                 />
                             </View>
 
